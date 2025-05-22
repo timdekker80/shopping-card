@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Categorieën{% endblock %}
+
+{% block body %}
+
+    <h1>Categorieën</h1>
+
+    <div class="container">
+        <div class="row">
+        {% for category in categories %}
+
+            <div class="span4">
+                <div class="card">
+                    <img src="{{ asset('images/' ~ category.image) }}" alt="{{ category.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ category.name }}</h5>
+
+                    </div>
+                    <a href="{{ path('app_category_product', {'id': category.id}) }}" class="btn btn-primary">Pizza's</a>
+                </div>
+            </div>
+
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
